@@ -12,7 +12,7 @@ public class ApplyRequest {
 
 		public ApplyRequest() {
 			
-			// TODO Auto-generated constructor stub
+			
 		}
 
 		public ApplyRequest(Long jobId) {
