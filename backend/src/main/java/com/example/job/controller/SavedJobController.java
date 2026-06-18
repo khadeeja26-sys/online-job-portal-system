@@ -19,21 +19,21 @@ public class SavedJobController {
     @Autowired
     private SavedJobService service;
 
-    // ✅ Save job
+    
     @PreAuthorize("hasRole('JOBSEEKER')")
     @PostMapping("/{jobId}")
     public void save(@PathVariable Long jobId, Authentication auth) {
         service.saveJob(jobId, auth);
     }
 
-    // ✅ Get saved jobs
+    
     @PreAuthorize("hasRole('JOBSEEKER')")
     @GetMapping
     public List<SavedJobResponse> getSavedJobs(Authentication auth) {
         return service.getSavedJobs(auth);
     }
 
-    // ✅ Remove saved job
+   
     @PreAuthorize("hasRole('JOBSEEKER')")
     @DeleteMapping("/{id}")
     public void remove(@PathVariable Long id, Authentication auth) {
