@@ -14,15 +14,13 @@ import com.example.job.service.AdminService;
 @RestController
 @RequestMapping("/api/admin")
 @CrossOrigin(origins = "http://localhost:4200")
-@PreAuthorize("hasRole('ADMIN')") // 🔥 JWT role check
+@PreAuthorize("hasRole('ADMIN')") 
 public class AdminController {
 
     @Autowired
     private AdminService service;
 
-    // ================= USERS =================
-
-    @GetMapping("/users")
+     @GetMapping("/users")
     public List<UserResponse> getUsers() {
         return service.getUsers();
     }
@@ -31,8 +29,6 @@ public class AdminController {
     public void suspendUser(@PathVariable Long id) {
         service.suspendUser(id);
     }
-
-    // ================= JOBS =================
 
     @GetMapping("/jobs")
     public List<JobResponse> getJobs() {
@@ -44,14 +40,10 @@ public class AdminController {
         service.closeJob(id);
     }
 
-    // ================= APPROVE =================
-
     @PutMapping("/recruiters/{id}/approve")
     public void approveRecruiter(@PathVariable Long id) {
         service.approveRecruiter(id);
     }
-
-    // ================= DASHBOARD =================
 
     @GetMapping("/dashboard")
     public Map<String, Long> dashboard() {
