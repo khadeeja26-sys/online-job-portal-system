@@ -22,7 +22,7 @@ public class DataLoader {
                 User admin = new User();
                 admin.setName("Admin");
                 admin.setEmail("admin@gmail.com");
-                admin.setPassword(encoder.encode("admin123")); // 🔥 IMPORTANT
+                admin.setPassword(encoder.encode("admin123")); 
                 admin.setRole(Role.ADMIN);
                 admin.setApproved(true);
 
