@@ -1,7 +1,5 @@
 package com.example.job.controller;
 
-
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,33 +20,25 @@ public class ApplicationController {
     @Autowired
     private ApplicationService service;
 
-    // =========================
-    // ✅ APPLY JOB (JOBSEEKER ONLY)
-    // =========================
+    
     @PostMapping
     @PreAuthorize("hasRole('JOBSEEKER')")
     public ApplicationResponse apply(@RequestBody ApplyRequest req, Authentication auth) {
         return service.apply(req, auth);
     }
 
-    // =========================
-    // ✅ RECRUITER VIEW
-    // =========================
+  
     @GetMapping("/job/{jobId}")
     @PreAuthorize("hasRole('RECRUITER')")
     public List<ApplicationResponse> getByJob(@PathVariable Long jobId, Authentication auth) {
         return service.getByJob(jobId, auth);
     }
 
-    // =========================
-    // ✅ JOBSEEKER VIEW (SAFE)
-    // =========================
+   
     @GetMapping("/my")
     @PreAuthorize("hasRole('JOBSEEKER')")
     public List<ApplicationResponse> getMyApplications(Authentication auth) {
         return service.getMyApplications(auth);
     }
     
-
-   
 }
