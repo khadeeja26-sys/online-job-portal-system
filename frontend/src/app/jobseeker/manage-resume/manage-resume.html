@@ -1,0 +1,146 @@
+<div class="mr-layout">
+
+  <!-- SIDEBAR -->
+  <div class="mr-sidebar">
+
+    <div class="mr-logo">Jobseeker</div>
+
+    <nav class="mr-nav">
+      <a routerLink="/jobseeker-dashboard">
+        Dashboard
+      </a>
+
+      <a routerLink="/job-search">
+        Search Jobs
+      </a>
+
+      <a routerLink="/jobseeker-applied-jobs">
+        My Applications
+      </a>
+
+      <a routerLink="/saved-jobs">
+        Saved Jobs
+      </a>
+
+      <a routerLink="/manage-resume" class="active">
+        Resume
+      </a>
+    </nav>
+
+    <button
+      class="mr-logout"
+      (click)="logout()"
+    >
+      Logout
+    </button>
+
+  </div>
+
+  <!-- CONTENT -->
+  <div class="mr-content">
+
+    <!-- HEADER -->
+    <div class="mr-header">
+      <h1>Manage Resume</h1>
+      <p>Upload, replace, download and manage your resume</p>
+    </div>
+
+    <!-- SUCCESS -->
+    <div
+      *ngIf="message"
+      class="mr-alert mr-success"
+    >
+      {{ message }}
+    </div>
+
+    <!-- ERROR -->
+    <div
+      *ngIf="error"
+      class="mr-alert mr-error"
+    >
+      {{ error }}
+    </div>
+
+    <!-- LOADING -->
+    <div
+      *ngIf="loading"
+      class="mr-card"
+    >
+      Loading...
+    </div>
+
+    <!-- CURRENT RESUME -->
+    <div
+      *ngIf="resume"
+      class="mr-card"
+    >
+
+      <h3>Current Resume</h3>
+
+      <p>
+        <strong>File Name:</strong>
+        {{ resume.fileName }}
+      </p>
+
+      <div class="mr-btn-group">
+
+        <button
+          class="mr-btn mr-primary"
+          (click)="viewResume()"
+        >
+          View Resume
+        </button>
+
+        <button
+          class="mr-btn mr-success-btn"
+          (click)="downloadResume()"
+        >
+          Download Resume
+        </button>
+
+        <button
+          class="mr-btn mr-danger"
+          (click)="deleteResume()"
+        >
+          Delete Resume
+        </button>
+
+      </div>
+
+    </div>
+
+    <!-- UPLOAD -->
+    <div class="mr-card">
+
+      <h3>
+        {{ resume ? 'Replace Resume' : 'Upload Resume' }}
+      </h3>
+
+      <div class="mr-form-group">
+
+        <label>
+          Select PDF File
+        </label>
+
+        <input
+          type="file"
+          class="mr-input"
+          accept=".pdf"
+          (change)="onFileSelected($event)"
+        >
+
+      </div>
+
+      <button
+        class="mr-btn mr-primary"
+        (click)="uploadResume()"
+        [disabled]="loading || !selectedFile"
+      >
+        {{ resume ? 'Replace Resume' : 'Upload Resume' }}
+      </button>
+
+    </div>
+
+  </div>
+
+</div>

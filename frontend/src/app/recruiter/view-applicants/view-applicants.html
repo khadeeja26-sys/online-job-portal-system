@@ -1,0 +1,114 @@
+<div class="va-layout">
+
+  <!-- SIDEBAR -->
+  <div class="va-sidebar">
+
+    <div class="va-logo">Recruiter</div>
+
+    <nav class="va-nav">
+      <a routerLink="/recruiter-dashboard">Dashboard</a>
+      <a routerLink="/post-job">Post Job</a>
+      <a routerLink="/recruiter-jobs">Manage Jobs</a>
+    </nav>
+
+    <button class="va-logout" (click)="logout()">
+      Logout
+    </button>
+
+  </div>
+
+  <!-- CONTENT -->
+  <div class="va-content">
+
+    <!-- HEADER -->
+    <div class="va-header">
+      <h1>View Applicants</h1>
+      <p>Review applicants and manage resumes</p>
+    </div>
+
+    <!-- SUCCESS -->
+    <div *ngIf="message" class="va-alert success">
+      {{ message }}
+    </div>
+
+    <!-- ERROR -->
+    <div *ngIf="error" class="va-alert error">
+      {{ error }}
+    </div>
+
+    <!-- LOADING -->
+    <div *ngIf="loading" class="va-alert">
+      Loading applications...
+    </div>
+
+    <!-- EMPTY -->
+    <div
+      *ngIf="!loading && applications.length === 0"
+      class="va-alert"
+    >
+      No applications found.
+    </div>
+
+    <!-- TABLE -->
+    <div
+      *ngIf="applications.length > 0"
+      class="va-table-card"
+    >
+
+      <table class="va-table">
+
+        <thead>
+          <tr>
+            <th>Applicant Name</th>
+            <th>Email</th>
+            <th>Status</th>
+            <th>Applied Date</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr *ngFor="let application of applications">
+
+            <td>{{ application.applicantName }}</td>
+
+            <td>{{ application.email }}</td>
+
+            <td>
+              <span class="va-status">
+                {{ application.status }}
+              </span>
+            </td>
+
+            <td>{{ application.appliedDate }}</td>
+
+            <td>
+
+              <button
+                class="va-btn primary"
+                (click)="viewResume(application.id)"
+              >
+                View Resume
+              </button>
+
+              <button
+                class="va-btn success-btn"
+                (click)="downloadResume(application.id)"
+              >
+                Download
+              </button>
+
+            </td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+</div>

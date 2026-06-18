@@ -1,0 +1,186 @@
+/* PAGE */
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: #eef4fb;
+}
+
+/* LAYOUT */
+.postjob-admin-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* SIDEBAR */
+.postjob-sidebar {
+  width: 280px;
+  background: linear-gradient(180deg, #1565c0, #42a5f5);
+  color: white;
+  padding: 30px 25px;
+  display: flex;
+  flex-direction: column;
+}
+
+.postjob-logo {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 50px;
+}
+
+.postjob-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.postjob-nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 14px 18px;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.postjob-nav a:hover,
+.postjob-nav a.active {
+  background: rgba(255,255,255,0.18);
+}
+
+.postjob-logout {
+  margin-top: auto;
+  border: none;
+  background: white;
+  color: #1565c0;
+  font-weight: 700;
+  padding: 14px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.postjob-logout:hover {
+  background: #f4f8ff;
+}
+
+/* CONTENT */
+.postjob-content {
+  flex: 1;
+  padding: 40px;
+}
+
+/* HEADER */
+.postjob-header {
+  background: white;
+  padding: 35px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+  margin-bottom: 30px;
+}
+
+.postjob-header h1 {
+  color: #1565c0;
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.postjob-header p {
+  color: #5c6f8d;
+  font-size: 1.1rem;
+}
+
+/* ALERTS */
+.postjob-alert {
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  background: white;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.postjob-alert.success {
+  background: #d4edda;
+  color: #155724;
+}
+
+.postjob-alert.error {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+/* FORM CARD (FIXED) */
+.postjob-card {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+  border: 1px solid #e3eaf5;
+}
+
+/* LABEL */
+.postjob-card label {
+  display: block;
+  margin-top: 18px;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #1565c0;
+  font-size: 1rem;
+}
+
+/* INPUT + TEXTAREA (FIXED VISIBILITY) */
+.postjob-card input,
+.postjob-card textarea {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #cfd8e3;
+  border-radius: 10px;
+  outline: none;
+  font-size: 1rem;
+  background: #fdfdfd;
+  color: #1f2d3d;
+  transition: 0.3s;
+}
+
+/* PLACEHOLDER */
+.postjob-card input::placeholder,
+.postjob-card textarea::placeholder {
+  color: #8aa0b6;
+}
+
+/* FOCUS */
+.postjob-card input:focus,
+.postjob-card textarea:focus {
+  border-color: #1565c0;
+  box-shadow: 0 0 0 3px rgba(21,101,192,0.15);
+  background: #ffffff;
+}
+
+/* TEXTAREA FIX */
+.postjob-card textarea {
+  resize: vertical;
+  min-height: 180px;
+}
+
+/* BUTTON */
+.postjob-btn {
+  margin-top: 30px;
+  width: 100%;
+  background: #1565c0;
+  color: white;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.postjob-btn:hover {
+  background: #0d47a1;
+}
+
+.postjob-btn:disabled {
+  background: #a0aec0;
+  cursor: not-allowed;
+}

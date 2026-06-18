@@ -1,0 +1,142 @@
+<div class="ej-layout">
+
+  <!-- SIDEBAR -->
+  <div class="ej-sidebar">
+
+    <div class="ej-logo">Recruiter</div>
+
+    <nav class="ej-nav">
+      <a routerLink="/recruiter-dashboard">Dashboard</a>
+      <a routerLink="/post-job">Post Job</a>
+      <a routerLink="/recruiter-jobs" class="active">Manage Jobs</a>
+    </nav>
+
+    <button class="ej-logout" (click)="logout()">
+      Logout
+    </button>
+
+  </div>
+
+  <!-- CONTENT -->
+  <div class="ej-content">
+
+    <!-- HEADER -->
+    <div class="ej-header">
+      <h1>Edit Job</h1>
+      <p>Update job details and keep postings current</p>
+    </div>
+
+    <!-- SUCCESS -->
+    <div *ngIf="message" class="ej-alert success">
+      {{ message }}
+    </div>
+
+    <!-- ERROR -->
+    <div *ngIf="error" class="ej-alert error">
+      {{ error }}
+    </div>
+
+    <!-- LOADING -->
+    <div *ngIf="loading" class="ej-alert">
+      Loading job details...
+    </div>
+
+    <!-- FORM CARD -->
+    <div *ngIf="!loading" class="ej-card">
+
+      <form (ngSubmit)="updateJob()">
+
+        <!-- TITLE -->
+        <div class="ej-group">
+          <label>Job Title</label>
+          <input
+            type="text"
+            [(ngModel)]="jobRequest.title"
+            name="title"
+            maxlength="100"
+            required
+          >
+        </div>
+
+        <!-- DESCRIPTION -->
+        <div class="ej-group">
+          <label>Job Description</label>
+          <textarea
+            rows="12"
+            [(ngModel)]="jobRequest.description"
+            name="description"
+            maxlength="5000"
+            required
+          ></textarea>
+        </div>
+
+        <!-- COMPANY -->
+        <div class="ej-group">
+          <label>Company</label>
+          <input
+            type="text"
+            [(ngModel)]="jobRequest.company"
+            name="company"
+            maxlength="100"
+            required
+          >
+        </div>
+
+        <!-- LOCATION -->
+        <div class="ej-group">
+          <label>Location</label>
+          <input
+            type="text"
+            [(ngModel)]="jobRequest.location"
+            name="location"
+            maxlength="100"
+            required
+          >
+        </div>
+
+        <!-- SALARY -->
+        <div class="ej-group">
+          <label>Salary</label>
+          <input
+            type="number"
+            [(ngModel)]="jobRequest.salary"
+            name="salary"
+            min="1"
+            required
+          >
+        </div>
+
+        <!-- BUTTONS -->
+        <div class="ej-actions">
+
+          <button
+            type="submit"
+            class="ej-btn save"
+            [disabled]="loading ||
+                        !jobRequest.title.trim() ||
+                        !jobRequest.description.trim() ||
+                        !jobRequest.company.trim() ||
+                        !jobRequest.location.trim() ||
+                        jobRequest.salary <= 0"
+          >
+            <span *ngIf="loading">Updating...</span>
+            <span *ngIf="!loading">Update Job</span>
+          </button>
+
+          <button
+            type="button"
+            class="ej-btn cancel"
+            (click)="cancel()"
+          >
+            Cancel
+          </button>
+
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>

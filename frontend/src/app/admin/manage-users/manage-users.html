@@ -1,0 +1,120 @@
+<div class="user-admin-layout">
+
+  <!-- SIDEBAR -->
+  <aside class="user-sidebar">
+
+    <div class="user-logo">AdminPanel</div>
+
+    <nav class="user-nav">
+      <a routerLink="/admin-dashboard">Dashboard</a>
+      <a
+        routerLink="/admin-approve-recruiters">
+        Approve Recruiters
+      </a>
+      <a routerLink="/admin-manage-jobs">Jobs</a>
+      <a routerLink="/admin-manage-users" class="active">Users</a>
+     
+    </nav>
+
+    <button class="user-logout-btn" (click)="logout()">
+      Logout
+    </button>
+
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="user-main">
+
+    <!-- HEADER -->
+    <section class="user-header">
+      <h1>Manage Users</h1>
+      <p>Control user accounts and permissions</p>
+    </section>
+
+    <!-- ALERTS -->
+    <div *ngIf="message" class="user-alert success">
+      {{ message }}
+    </div>
+
+    <div *ngIf="error" class="user-alert error">
+      {{ error }}
+    </div>
+
+    <div *ngIf="loading" class="user-alert">
+      Loading users...
+    </div>
+
+    <div *ngIf="!loading && users.length === 0" class="user-alert">
+      No users found
+    </div>
+
+    <!-- TABLE -->
+    <section *ngIf="users.length > 0" class="user-table-card">
+
+      <table class="user-table">
+
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Status</th>
+            <th class="center">Action</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr *ngFor="let user of users">
+
+            <td>{{ user.id }}</td>
+
+            <td>
+              <div class="user-name">{{ user.name }}</div>
+            </td>
+
+            <td>{{ user.email }}</td>
+
+            <td>{{ user.role }}</td>
+
+            <td>
+              <span
+                class="user-status"
+                [ngClass]="user.active ? 'active-badge' : 'inactive-badge'"
+              >
+                {{ user.active ? 'Active' : 'Suspended' }}
+              </span>
+            </td>
+
+            <td class="center">
+
+              <button
+                *ngIf="user.active"
+                class="user-btn"
+                (click)="suspendUser(user.id)"
+              >
+                Suspend
+              </button>
+
+              <button
+                *ngIf="!user.active"
+                class="user-btn disabled"
+                disabled
+              >
+                Suspended
+              </button>
+
+            </td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </section>
+
+  </main>
+
+</div>

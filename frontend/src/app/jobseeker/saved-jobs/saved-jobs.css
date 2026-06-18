@@ -1,0 +1,195 @@
+/* PAGE */
+.sj-layout {
+  display: flex;
+  min-height: 100vh;
+  background: #eef4fb;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* SIDEBAR */
+.sj-sidebar {
+  width: 280px;
+  background: linear-gradient(180deg, #1565c0, #42a5f5);
+  color: white;
+  padding: 30px 25px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sj-logo {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 50px;
+}
+
+.sj-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.sj-nav a {
+  color: white;
+  text-decoration: none;
+  padding: 14px 18px;
+  border-radius: 10px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.sj-nav a:hover,
+.sj-nav a.active {
+  background: rgba(255,255,255,0.18);
+}
+
+.sj-logout {
+  margin-top: auto;
+  border: none;
+  background: white;
+  color: #1565c0;
+  font-weight: 700;
+  padding: 14px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.sj-logout:hover {
+  background: #f4f8ff;
+}
+
+/* CONTENT */
+.sj-content {
+  flex: 1;
+  padding: 40px;
+}
+
+/* HEADER */
+.sj-header {
+  background: white;
+  padding: 35px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+  margin-bottom: 30px;
+}
+
+.sj-header h1 {
+  color: #1565c0;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.sj-header p {
+  color: #5c6f8d;
+  margin: 0;
+}
+
+/* ALERTS */
+.sj-alert {
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.sj-success {
+  background: #d4edda;
+  color: #155724;
+}
+
+.sj-error {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.sj-info {
+  background: #e3f2fd;
+  color: #1565c0;
+}
+
+/* CARD */
+.sj-card {
+  background: white;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+  margin-bottom: 25px;
+}
+
+/* TITLE */
+.sj-title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+}
+
+.sj-title-row h3 {
+  color: #1565c0;
+  margin: 0;
+}
+
+/* BADGES */
+.sj-badge {
+  padding: 6px 12px;
+  border-radius: 20px;
+  color: white;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.sj-active {
+  background: #2e7d32;
+}
+
+.sj-closed {
+  background: #6c757d;
+}
+
+.sj-applied {
+  background: #1565c0;
+}
+
+/* DESCRIPTION */
+.sj-description {
+  margin-top: 15px;
+  margin-bottom: 20px;
+  padding: 15px;
+  border-radius: 12px;
+  background: #f7f9fc;
+  border: 1px solid #dfe7f1;
+  white-space: pre-line;
+}
+
+/* BUTTONS */
+.sj-actions {
+  margin-top: 15px;
+}
+
+.sj-btn {
+  border: none;
+  border-radius: 10px;
+  padding: 12px 18px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: 0.3s;
+}
+
+.sj-primary {
+  background: #1565c0;
+  color: white;
+}
+
+.sj-primary:hover {
+  background: #0d47a1;
+}
+
+.sj-danger {
+  background: #d32f2f;
+  color: white;
+}
+
+.sj-danger:hover {
+  background: #b71c1c;
+}

@@ -1,0 +1,123 @@
+<div class="login-page">
+
+  <!-- LEFT PANEL -->
+  <div class="login-banner">
+
+    <div class="banner-content">
+
+      <h1>Job Portal</h1>
+
+      <p>
+        Connecting Talent with Opportunity
+      </p>
+
+      <div class="feature-box">
+        <span>💼</span>
+        <div>
+          <h4>Find Your Dream Job</h4>
+          <p>Explore thousands of opportunities.</p>
+        </div>
+      </div>
+
+      <div class="feature-box">
+        <span>📄</span>
+        <div>
+          <h4>Manage Resume</h4>
+          <p>Keep your profile updated.</p>
+        </div>
+      </div>
+
+      <div class="feature-box">
+        <span>🚀</span>
+        <div>
+          <h4>Track Applications</h4>
+          <p>Monitor your job applications easily.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- RIGHT PANEL -->
+  <div class="login-container">
+
+    <div class="login-card">
+
+      <h2>Welcome Back</h2>
+
+      <p class="subtitle">
+        Sign in to continue your career journey
+      </p>
+
+      <!-- ERROR -->
+      <div
+        *ngIf="error"
+        class="error-alert"
+      >
+        {{ error }}
+      </div>
+
+      <!-- EMAIL -->
+      <div class="input-box">
+
+        <label>Email Address</label>
+
+        <input
+          type="email"
+          [(ngModel)]="loginData.email"
+          name="email"
+          placeholder="Enter your email"
+        >
+
+      </div>
+
+      <!-- PASSWORD -->
+      <div class="input-box">
+
+        <label>Password</label>
+
+        <input
+          type="password"
+          [(ngModel)]="loginData.password"
+          name="password"
+          placeholder="Enter your password"
+        >
+
+      </div>
+
+      <!-- LOGIN BUTTON -->
+      <button
+        class="login-btn"
+        (click)="login()"
+        [disabled]="loading ||
+                    !loginData.email ||
+                    !loginData.password"
+      >
+        Login
+      </button>
+
+      <!-- REGISTER -->
+      <div class="register-link">
+
+        Don't have an account?
+
+        <a routerLink="/register">
+          Register
+        </a>
+
+      </div>
+
+      <!-- HOME BUTTON -->
+      <a
+        routerLink="/"
+        class="home-btn"
+      >
+        🏠 Back to Home
+      </a>
+
+    </div>
+
+  </div>
+
+</div>

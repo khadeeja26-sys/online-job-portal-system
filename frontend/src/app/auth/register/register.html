@@ -1,0 +1,136 @@
+<header class="register-header">
+
+  <div class="header-content">
+    <h1>Job Portal</h1>
+    <p>Create your account and start your career journey today</p>
+  </div>
+
+</header>
+
+<div class="register-wrapper">
+
+  <!-- LEFT PANEL -->
+  <div class="register-left">
+
+    <h2>Welcome to Job Portal</h2>
+
+    <p>
+      Discover thousands of job opportunities and connect with top recruiters.
+    </p>
+
+    <ul>
+      <li>✔ Search jobs easily</li>
+      <li>✔ Upload professional resumes</li>
+      <li>✔ Apply instantly</li>
+      <li>✔ Track application status</li>
+    </ul>
+
+    <!-- HOME BUTTON -->
+    <a
+      routerLink="/"
+      class="home-btn"
+    >
+       Home Page
+    </a>
+
+  </div>
+
+  <!-- RIGHT PANEL -->
+  <div class="register-right">
+
+    <div class="register-card">
+
+      <h2 class="form-title">
+        Create Account
+      </h2>
+
+      <!-- SUCCESS -->
+      <div
+        *ngIf="message"
+        class="success-alert"
+      >
+        {{ message }}
+      </div>
+
+      <!-- ERROR -->
+      <div
+        *ngIf="error"
+        class="error-alert"
+      >
+        {{ error }}
+      </div>
+
+      <!-- NAME -->
+      <div class="input-group">
+        <label>Name</label>
+        <input
+          type="text"
+          [(ngModel)]="registerData.name"
+          name="name"
+          placeholder="Enter your full name"
+        >
+      </div>
+
+      <!-- EMAIL -->
+      <div class="input-group">
+        <label>Email</label>
+        <input
+          type="email"
+          [(ngModel)]="registerData.email"
+          name="email"
+          placeholder="Enter your email"
+        >
+      </div>
+
+      <!-- PASSWORD -->
+      <div class="input-group">
+        <label>Password</label>
+        <input
+          type="password"
+          [(ngModel)]="registerData.password"
+          name="password"
+          placeholder="Enter password"
+        >
+      </div>
+
+      <!-- ROLE -->
+      <div class="input-group">
+        <label>Role</label>
+
+        <select
+          [(ngModel)]="registerData.role"
+          name="role"
+        >
+          <option
+            *ngFor="let role of roles"
+            [value]="role"
+          >
+            {{ role }}
+          </option>
+        </select>
+      </div>
+
+      <!-- REGISTER BUTTON -->
+      <button
+        class="register-btn"
+        (click)="register()"
+        [disabled]="loading ||
+                    !registerData.name ||
+                    !registerData.email ||
+                    !registerData.password"
+      >
+        Create Account
+      </button>
+
+      <div class="login-link">
+        Already have an account?
+        <a routerLink="/login">
+          Login
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

@@ -1,0 +1,99 @@
+<div class="jd-layout">
+
+  <!-- SIDEBAR -->
+  <div class="jd-sidebar">
+
+    <div class="jd-logo">Jobseeker</div>
+
+    <nav class="jd-nav">
+      <a routerLink="/jobseeker-dashboard">Dashboard</a>
+      <a routerLink="/job-search" class="active">Search Jobs</a>
+      <a routerLink="/jobseeker-applied-jobs">My Applications</a>
+      <a routerLink="/saved-jobs">Saved Jobs</a>
+      <a routerLink="/manage-resume">Resume</a>
+    </nav>
+
+    <button class="jd-logout" (click)="logout()">
+      Logout
+    </button>
+
+  </div>
+
+  <!-- CONTENT -->
+  <div class="jd-content">
+
+    <!-- HEADER -->
+    <div class="jd-header">
+      <h1>Job Details</h1>
+      <p>View complete information about this job</p>
+    </div>
+
+    <!-- SUCCESS -->
+    <div *ngIf="message" class="jd-alert jd-success">
+      {{ message }}
+    </div>
+
+    <!-- ERROR -->
+    <div *ngIf="error" class="jd-alert jd-error">
+      {{ error }}
+    </div>
+
+    <!-- LOADING -->
+    <div *ngIf="loading" class="jd-loading">
+      Loading job details...
+    </div>
+
+    <!-- JOB CARD -->
+    <div *ngIf="!loading && job" class="jd-card">
+
+      <h2 class="jd-title">
+
+        {{ job.title }}
+
+        <span
+          *ngIf="job.applied"
+          class="jd-badge"
+        >
+          Applied
+        </span>
+
+      </h2>
+
+      <div class="jd-info">
+        <p><strong>Company:</strong> {{ job.company }}</p>
+        <p><strong>Location:</strong> {{ job.location }}</p>
+        <p><strong>Salary:</strong> {{ job.salary }}</p>
+      </div>
+
+      <div class="jd-description">
+
+        <p><strong>Description:</strong></p>
+
+        {{ job.description }}
+
+      </div>
+
+      <div class="jd-actions">
+
+        <button
+          *ngIf="job.active && !job.applied"
+          class="jd-btn jd-btn-primary"
+          (click)="goToApplyPage()"
+        >
+          Apply Now
+        </button>
+
+        <button
+          class="jd-btn jd-btn-outline"
+          (click)="saveJob()"
+        >
+          Save Job
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

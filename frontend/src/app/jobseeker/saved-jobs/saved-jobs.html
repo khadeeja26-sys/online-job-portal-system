@@ -1,0 +1,163 @@
+<div class="sj-layout">
+
+  <!-- SIDEBAR -->
+  <div class="sj-sidebar">
+
+    <div class="sj-logo">
+      Jobseeker
+    </div>
+
+    <nav class="sj-nav">
+
+      <a routerLink="/jobseeker-dashboard">
+        Dashboard
+      </a>
+
+      <a routerLink="/job-search">
+        Search Jobs
+      </a>
+
+      <a routerLink="/jobseeker-applied-jobs">
+        My Applications
+      </a>
+
+      <a routerLink="/saved-jobs" class="active">
+        Saved Jobs
+      </a>
+
+      <a routerLink="/manage-resume">
+        Resume
+      </a>
+
+    </nav>
+
+    <button
+      class="sj-logout"
+      (click)="logout()"
+    >
+      Logout
+    </button>
+
+  </div>
+
+  <!-- CONTENT -->
+  <div class="sj-content">
+
+    <!-- HEADER -->
+    <div class="sj-header">
+
+      <h1>Saved Jobs</h1>
+
+      <p>
+        View and manage jobs you saved for later
+      </p>
+
+    </div>
+
+    <!-- SUCCESS -->
+    <div
+      *ngIf="message"
+      class="sj-alert sj-success"
+    >
+      {{ message }}
+    </div>
+
+    <!-- ERROR -->
+    <div
+      *ngIf="error"
+      class="sj-alert sj-error"
+    >
+      {{ error }}
+    </div>
+
+    <!-- LOADING -->
+    <div
+      *ngIf="loading"
+      class="sj-card"
+    >
+      Loading saved jobs...
+    </div>
+
+    <!-- EMPTY -->
+    <div
+      *ngIf="!loading && savedJobs.length === 0"
+      class="sj-alert sj-info"
+    >
+      No saved jobs found.
+    </div>
+
+    <!-- JOBS -->
+    <div
+      *ngFor="let job of savedJobs"
+      class="sj-card"
+    >
+
+      <div class="sj-title-row">
+
+        <h3>{{ job.title }}</h3>
+
+        <span
+          class="sj-badge"
+          [ngClass]="job.active ? 'sj-active' : 'sj-closed'"
+        >
+          {{ job.active ? 'Active' : 'Closed' }}
+        </span>
+
+        <span
+          *ngIf="job.applied"
+          class="sj-badge sj-applied"
+        >
+          Applied
+        </span>
+
+      </div>
+
+      <p>
+        <strong>Company:</strong>
+        {{ job.company }}
+      </p>
+
+      <p>
+        <strong>Location:</strong>
+        {{ job.location }}
+      </p>
+
+      <p>
+        <strong>Salary:</strong>
+        {{ job.salary }}
+      </p>
+
+      <div class="sj-description">
+
+        <p>
+          <strong>Description:</strong>
+        </p>
+
+        {{ job.description }}
+
+      </div>
+
+      <div class="sj-actions">
+
+        <button
+          *ngIf="job.active && !job.applied"
+          class="sj-btn sj-primary"
+          (click)="goToApplyPage(job.jobId)"
+        >
+          Apply Now
+        </button>
+
+        <button
+          class="sj-btn sj-danger"
+          (click)="removeSavedJob(job.savedJobId)"
+        >
+          Remove
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

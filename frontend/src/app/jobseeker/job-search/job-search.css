@@ -1,0 +1,166 @@
+/* PAGE */
+.js-search-layout {
+  display: flex;
+  min-height: 100vh;
+  background: #eef4fb;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* SIDEBAR */
+.js-search-sidebar {
+  width: 280px;
+  background: linear-gradient(180deg, #1565c0, #42a5f5);
+  color: white;
+  padding: 30px 25px;
+  display: flex;
+  flex-direction: column;
+}
+
+.js-search-logo {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 50px;
+}
+
+.js-search-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.js-search-nav a {
+  color: white;
+  text-decoration: none;
+  padding: 14px 18px;
+  border-radius: 10px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.js-search-nav a:hover,
+.js-search-nav a.active {
+  background: rgba(255,255,255,0.18);
+}
+
+.js-search-logout {
+  margin-top: auto;
+  border: none;
+  background: white;
+  color: #1565c0;
+  font-weight: 700;
+  padding: 14px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.js-search-logout:hover {
+  background: #f4f8ff;
+}
+
+/* CONTENT */
+.js-search-content {
+  flex: 1;
+  padding: 40px;
+}
+
+/* HEADER */
+.js-search-header {
+  background: white;
+  padding: 35px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+  margin-bottom: 30px;
+}
+
+.js-search-header h1 {
+  color: #1565c0;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.js-search-header p {
+  color: #5c6f8d;
+  margin: 0;
+}
+
+/* SEARCH CARD */
+.js-search-card {
+  background: white;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+  margin-bottom: 25px;
+}
+
+.js-search-row {
+  display: flex;
+  gap: 15px;
+}
+
+.js-search-input {
+  flex: 1;
+  padding: 14px;
+  border: 1px solid #d7dee8;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+.js-search-input:focus {
+  outline: none;
+  border-color: #1565c0;
+}
+
+/* BUTTONS */
+.js-search-btn,
+.js-search-view-btn {
+  border: none;
+  border-radius: 10px;
+  padding: 12px 20px;
+  background: #1565c0;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.js-search-btn:hover,
+.js-search-view-btn:hover {
+  background: #0d47a1;
+}
+
+/* JOB CARD */
+.js-search-job-card {
+  background: white;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+  margin-bottom: 20px;
+}
+
+.js-search-job-card h3 {
+  color: #1565c0;
+  margin-bottom: 15px;
+}
+
+.js-search-job-card p {
+  margin-bottom: 15px;
+  color: #444;
+}
+
+/* ALERTS */
+.js-search-alert {
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.js-search-error {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.js-search-info {
+  background: #e3f2fd;
+  color: #1565c0;
+}

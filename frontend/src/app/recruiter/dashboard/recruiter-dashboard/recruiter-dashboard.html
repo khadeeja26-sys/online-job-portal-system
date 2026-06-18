@@ -1,0 +1,59 @@
+<div class="admin-layout">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+
+    <div class="logo">Recruiter</div>
+
+    <nav>
+      <a routerLink="/recruiter-dashboard" class="active">
+        Dashboard
+      </a>
+
+      <a routerLink="/post-job">
+        Post Job
+      </a>
+
+      <a routerLink="/recruiter-jobs">
+        Manage Jobs
+      </a>
+    </nav>
+
+    <button class="logout-btn" (click)="logout()">
+      Logout
+    </button>
+
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content">
+
+    <!-- HEADER -->
+    <div class="page-header">
+      <h1>Recruiter Dashboard</h1>
+      <p>Manage your hiring activities and job postings</p>
+    </div>
+
+    <!-- CARDS ONLY -->
+    <div class="dashboard-grid">
+
+      <!-- CARD 1 -->
+      
+
+      <!-- CARD 2 -->
+      <div class="dashboard-card" >
+        <h3>Manage Jobs</h3>
+        <p>View and manage your active job postings</p>
+      </div>
+
+      <div class="dashboard-card" >
+        <h3>Applications</h3>
+        <p>Review and manage job applications</p>
+      </div>
+
+     
+    </div>
+
+  </div>
+
+</div>

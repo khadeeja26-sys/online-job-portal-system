@@ -1,0 +1,128 @@
+<div class="admin-layout">
+
+  <!-- SIDEBAR (if already in layout, you can remove this part) -->
+  <div class="sidebar">
+
+    <div class="logo">Admin</div>
+
+    <nav>
+      <a routerLink="/dashboard">Dashboard</a>
+      <a
+        routerLink="/admin-approve-recruiters"
+        
+      >
+        Approve Recruiters
+      </a>
+      <a routerLink="/admin-manage-jobs" class="active">Jobs</a>
+      <a routerLink="/admin-manage-users">Users</a>
+     
+    </nav>
+
+    <button class="logout-btn" (click)="logout()">
+      Logout
+    </button>
+
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content">
+
+    <!-- HEADER -->
+    <div class="page-header">
+      <h1>Manage Jobs</h1>
+      <p>View, close and manage all job postings</p>
+    </div>
+
+    <!-- SUCCESS -->
+    <div *ngIf="message" class="alert success">
+      {{ message }}
+    </div>
+
+    <!-- ERROR -->
+    <div *ngIf="error" class="alert error">
+      {{ error }}
+    </div>
+
+    <!-- LOADING -->
+    <div *ngIf="loading" class="alert">
+      Loading jobs...
+    </div>
+
+    <!-- EMPTY -->
+    <div *ngIf="!loading && jobs.length === 0" class="alert">
+      No jobs found
+    </div>
+
+    <!-- TABLE -->
+    <div *ngIf="jobs.length > 0" class="table-card">
+
+      <table>
+
+        <thead>
+          <tr>
+            <th>Job</th>
+            <th>Location</th>
+            <th>Salary</th>
+            <th>Status</th>
+            <th style="text-align:center;">Action</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr *ngFor="let job of jobs">
+
+            <!-- JOB -->
+            <td>
+              <div class="job-title">{{ job.title }}</div>
+              <div class="job-company">{{ job.company }}</div>
+            </td>
+
+            <!-- LOCATION -->
+            <td>{{ job.location }}</td>
+
+            <!-- SALARY -->
+            <td>₹ {{ job.salary }}</td>
+
+            <!-- STATUS -->
+            <td>
+              <span
+                class="status"
+                [ngClass]="job.active ? 'approved' : 'pending'"
+              >
+                {{ job.active ? 'Open' : 'Closed' }}
+              </span>
+            </td>
+
+            <!-- ACTION -->
+            <td style="text-align:center;">
+
+              <button
+                *ngIf="job.active"
+                class="approve-btn"
+                (click)="closeJob(job.id)"
+              >
+                Close Job
+              </button>
+
+              <button
+                *ngIf="!job.active"
+                class="approve-btn"
+                disabled
+              >
+                Closed
+              </button>
+
+            </td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+</div>

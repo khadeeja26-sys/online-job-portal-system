@@ -1,0 +1,191 @@
+/* PAGE */
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: #eef4fb;
+}
+
+/* LAYOUT */
+.ej-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* SIDEBAR */
+.ej-sidebar {
+  width: 280px;
+  background: linear-gradient(180deg, #1565c0, #42a5f5);
+  color: white;
+  padding: 30px 25px;
+  display: flex;
+  flex-direction: column;
+}
+
+.ej-logo {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 50px;
+}
+
+.ej-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.ej-nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 14px 18px;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.ej-nav a:hover,
+.ej-nav a.active {
+  background: rgba(255,255,255,0.18);
+}
+
+.ej-logout {
+  margin-top: auto;
+  border: none;
+  background: white;
+  color: #1565c0;
+  font-weight: 700;
+  padding: 14px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.ej-logout:hover {
+  background: #f4f8ff;
+}
+
+/* CONTENT */
+.ej-content {
+  flex: 1;
+  padding: 40px;
+}
+
+/* HEADER */
+.ej-header {
+  background: white;
+  padding: 35px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+  margin-bottom: 30px;
+}
+
+.ej-header h1 {
+  color: #1565c0;
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.ej-header p {
+  color: #5c6f8d;
+  font-size: 1.1rem;
+}
+
+/* ALERTS */
+.ej-alert {
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.ej-alert.success {
+  background: #d4edda;
+  color: #155724;
+}
+
+.ej-alert.error {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+/* FORM CARD */
+.ej-card {
+  background: white;
+  padding: 35px;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+}
+
+/* FORM GROUP */
+.ej-group {
+  margin-bottom: 20px;
+}
+
+.ej-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #1565c0;
+}
+
+.ej-group input,
+.ej-group textarea {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #d7dee8;
+  border-radius: 10px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.ej-group input:focus,
+.ej-group textarea:focus {
+  outline: none;
+  border-color: #1565c0;
+  box-shadow: 0 0 0 3px rgba(21,101,192,0.15);
+}
+
+/* TEXTAREA */
+.ej-group textarea {
+  resize: vertical;
+  min-height: 220px;
+}
+
+/* ACTIONS */
+.ej-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+/* BUTTONS */
+.ej-btn {
+  border: none;
+  padding: 14px 24px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* UPDATE */
+.ej-btn.save {
+  background: #1565c0;
+  color: white;
+}
+
+.ej-btn.save:hover {
+  background: #0d47a1;
+}
+
+/* CANCEL */
+.ej-btn.cancel {
+  background: #a0aec0;
+  color: white;
+}
+
+.ej-btn.cancel:hover {
+  background: #718096;
+}
+
+.ej-btn:disabled {
+  background: #cbd5e0;
+  cursor: not-allowed;
+}

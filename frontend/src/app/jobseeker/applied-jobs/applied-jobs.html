@@ -1,0 +1,92 @@
+<div class="ma-layout">
+
+  <!-- SIDEBAR -->
+  <div class="ma-sidebar">
+
+    <div class="ma-logo">Jobseeker</div>
+
+    <nav class="ma-nav">
+      <a routerLink="/jobseeker-dashboard">Dashboard</a>
+      <a routerLink="/job-search">Search Jobs</a>
+      <a routerLink="/jobseeker-applied-jobs" class="active">My Applications</a>
+      <a routerLink="/saved-jobs">Saved Jobs</a>
+      <a routerLink="/manage-resume">Resume</a>
+    </nav>
+
+    <button class="ma-logout" (click)="logout()">
+      Logout
+    </button>
+
+  </div>
+
+  <!-- CONTENT -->
+  <div class="ma-content">
+
+    <!-- HEADER -->
+    <div class="ma-header">
+      <h1>My Applications</h1>
+      <p>Track the jobs you have applied for</p>
+    </div>
+
+    <!-- ERROR -->
+    <div *ngIf="error" class="ma-alert error">
+      {{ error }}
+    </div>
+
+    <!-- LOADING -->
+    <div *ngIf="loading" class="ma-alert">
+      Loading applications...
+    </div>
+
+    <!-- EMPTY -->
+    <div
+      *ngIf="!loading && applications.length === 0"
+      class="ma-alert"
+    >
+      You have not applied to any jobs yet.
+    </div>
+
+    <!-- TABLE -->
+    <div
+      *ngIf="applications.length > 0"
+      class="ma-table-card"
+    >
+
+      <table class="ma-table">
+
+        <thead>
+          <tr>
+            <th>Job Title</th>
+            <th>Company</th>
+            <th>Application Status</th>
+            <th>Applied Date</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr *ngFor="let application of applications">
+
+            <td>{{ application.jobTitle }}</td>
+
+            <td>{{ application.company }}</td>
+
+            <td>
+              <span class="ma-status">
+                {{ application.status }}
+              </span>
+            </td>
+
+            <td>{{ application.appliedDate }}</td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+</div>

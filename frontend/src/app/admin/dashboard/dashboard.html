@@ -1,0 +1,68 @@
+<div class="admin-layout">
+
+  <!-- Sidebar -->
+
+  <div class="sidebar">
+
+    <div class="logo">
+      Job Portal Admin
+    </div>
+
+    <a routerLink="/admin-approve-recruiters">
+      Approve Recruiters
+    </a>
+
+    <a routerLink="/admin-manage-jobs">
+      Manage Jobs
+    </a>
+
+    <a routerLink="/admin-manage-users">
+      Manage Users
+    </a>
+
+    <button
+      class="logout-btn"
+      (click)="logout()">
+      Logout
+    </button>
+
+  </div>
+
+  <!-- Main Content -->
+
+  <div class="main-content">
+
+    <div class="welcome-card">
+
+      <h1>
+        Welcome Admin 👋
+      </h1>
+
+      <p>
+        Manage recruiters, jobs, and users from the dashboard.
+      </p>
+
+    </div>
+
+    <div class="dashboard-cards">
+
+      <div class="dashboard-card">
+        <h3>Recruiters</h3>
+        <p>Approve and manage recruiter accounts.</p>
+      </div>
+
+      <div class="dashboard-card">
+        <h3>Jobs</h3>
+        <p>Monitor and manage all job postings.</p>
+      </div>
+
+      <div class="dashboard-card">
+        <h3>Users</h3>
+        <p>Manage job seekers and recruiters.</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

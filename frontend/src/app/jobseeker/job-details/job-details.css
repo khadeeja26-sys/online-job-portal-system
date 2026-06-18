@@ -1,0 +1,198 @@
+/* PAGE */
+body{
+  margin:0;
+  font-family:"Segoe UI",sans-serif;
+  background:#eef4fb;
+}
+
+/* LAYOUT */
+.jd-layout{
+  display:flex;
+  min-height:100vh;
+}
+
+/* SIDEBAR */
+.jd-sidebar{
+  width:280px;
+  background:linear-gradient(180deg,#1565c0,#42a5f5);
+  color:white;
+  padding:30px 25px;
+  display:flex;
+  flex-direction:column;
+}
+
+.jd-logo{
+  font-size:2rem;
+  font-weight:700;
+  margin-bottom:50px;
+}
+
+.jd-nav{
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+}
+
+.jd-nav a{
+  color:white;
+  text-decoration:none;
+  padding:14px 18px;
+  border-radius:10px;
+  font-size:1.1rem;
+  font-weight:600;
+  transition:.3s;
+}
+
+.jd-nav a:hover,
+.jd-nav a.active{
+  background:rgba(255,255,255,.18);
+}
+
+.jd-logout{
+  margin-top:auto;
+  border:none;
+  background:white;
+  color:#1565c0;
+  font-weight:700;
+  padding:14px;
+  border-radius:12px;
+  cursor:pointer;
+}
+
+.jd-logout:hover{
+  background:#f4f8ff;
+}
+
+/* CONTENT */
+.jd-content{
+  flex:1;
+  padding:40px;
+}
+
+/* HEADER */
+.jd-header{
+  background:white;
+  padding:35px;
+  border-radius:20px;
+  box-shadow:0 8px 20px rgba(0,0,0,.06);
+  margin-bottom:30px;
+}
+
+.jd-header h1{
+  color:#1565c0;
+  font-size:3rem;
+  margin-bottom:10px;
+}
+
+.jd-header p{
+  color:#5c6f8d;
+  font-size:1.1rem;
+}
+
+/* ALERTS */
+.jd-alert{
+  padding:15px;
+  border-radius:12px;
+  margin-bottom:20px;
+}
+
+.jd-success{
+  background:#d4edda;
+  color:#155724;
+}
+
+.jd-error{
+  background:#f8d7da;
+  color:#721c24;
+}
+
+/* CARD */
+.jd-card{
+  background:white;
+  padding:30px;
+  border-radius:20px;
+  box-shadow:0 8px 25px rgba(0,0,0,.06);
+}
+
+/* TITLE */
+.jd-title{
+  color:#1565c0;
+  font-size:2rem;
+  font-weight:700;
+  margin-bottom:25px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+/* APPLIED BADGE */
+.jd-badge{
+  background:#1565c0;
+  color:white;
+  padding:6px 12px;
+  border-radius:20px;
+  font-size:.85rem;
+}
+
+/* INFO */
+.jd-info p{
+  margin-bottom:12px;
+  font-size:1rem;
+  color:#444;
+}
+
+/* DESCRIPTION */
+.jd-description{
+  margin-top:25px;
+  background:#f8fbff;
+  border:1px solid #dce8f5;
+  border-radius:15px;
+  padding:20px;
+  white-space:pre-line;
+  line-height:1.8;
+}
+
+/* ACTIONS */
+.jd-actions{
+  margin-top:30px;
+  display:flex;
+  gap:15px;
+}
+
+/* BUTTONS */
+.jd-btn{
+  border:none;
+  border-radius:10px;
+  padding:12px 24px;
+  font-weight:600;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.jd-btn-primary{
+  background:#1565c0;
+  color:white;
+}
+
+.jd-btn-primary:hover{
+  background:#0d47a1;
+}
+
+.jd-btn-outline{
+  background:white;
+  color:#1565c0;
+  border:2px solid #1565c0;
+}
+
+.jd-btn-outline:hover{
+  background:#1565c0;
+  color:white;
+}
+
+/* LOADING */
+.jd-loading{
+  background:white;
+  padding:20px;
+  border-radius:15px;
+  box-shadow:0 5px 15px rgba(0,0,0,.05);
+}

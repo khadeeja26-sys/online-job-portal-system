@@ -1,0 +1,148 @@
+/* PAGE */
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: #eef4fb;
+}
+
+/* LAYOUT */
+.ma-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* SIDEBAR */
+.ma-sidebar {
+  width: 280px;
+  background: linear-gradient(180deg, #1565c0, #42a5f5);
+  color: white;
+  padding: 30px 25px;
+  display: flex;
+  flex-direction: column;
+}
+
+.ma-logo {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 50px;
+}
+
+.ma-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.ma-nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 14px 18px;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.ma-nav a:hover,
+.ma-nav a.active {
+  background: rgba(255,255,255,0.18);
+}
+
+.ma-logout {
+  margin-top: auto;
+  border: none;
+  background: white;
+  color: #1565c0;
+  font-weight: 700;
+  padding: 14px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.ma-logout:hover {
+  background: #f4f8ff;
+}
+
+/* CONTENT */
+.ma-content {
+  flex: 1;
+  padding: 40px;
+}
+
+/* HEADER */
+.ma-header {
+  background: white;
+  padding: 35px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+  margin-bottom: 30px;
+}
+
+.ma-header h1 {
+  color: #1565c0;
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.ma-header p {
+  color: #5c6f8d;
+  font-size: 1.1rem;
+}
+
+/* ALERTS */
+.ma-alert {
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  background: white;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.ma-alert.error {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+/* TABLE CARD */
+.ma-table-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+}
+
+/* TABLE */
+.ma-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.ma-table thead {
+  background: #1565c0;
+}
+
+.ma-table thead th {
+  color: white;
+  padding: 20px;
+  text-align: left;
+  font-size: 1rem;
+}
+
+.ma-table tbody td {
+  padding: 22px 20px;
+  border-bottom: 1px solid #edf2f7;
+}
+
+.ma-table tbody tr:hover {
+  background: #f7fbff;
+}
+
+/* STATUS BADGE */
+.ma-status {
+  background: #d4f3df;
+  color: #137a3d;
+  padding: 8px 16px;
+  border-radius: 30px;
+  font-weight: 600;
+  display: inline-block;
+}

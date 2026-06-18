@@ -1,0 +1,104 @@
+<div class="aj-layout">
+
+  <!-- SIDEBAR -->
+  <div class="aj-sidebar">
+
+    <div class="aj-logo">Jobseeker</div>
+
+    <nav class="aj-nav">
+      <a routerLink="/jobseeker-dashboard">Dashboard</a>
+      <a routerLink="/job-search">Search Jobs</a>
+      <a routerLink="/jobseeker-applied-jobs" class="active">My Applications</a>
+      <a routerLink="/saved-jobs">Saved Jobs</a>
+      <a routerLink="/manage-resume">Resume</a>
+    </nav>
+
+    <button class="aj-logout" (click)="logout()">
+      Logout
+    </button>
+
+  </div>
+
+  <!-- CONTENT -->
+  <div class="aj-content">
+
+    <div class="aj-header">
+      <h1>Apply for {{ job.title }}</h1>
+      <p>Submit your application and resume</p>
+    </div>
+
+    <!-- Your existing content goes here -->
+<div class="container mt-4">
+   <!-- <h2 class="mb-4">
+     Apply for {{ job.title }} </h2>  -->
+     <!-- SUCCESS --> 
+      <div *ngIf="message" class="alert alert-success" >
+         {{ message }}
+         </div> 
+         <!-- ERROR -->
+          <div *ngIf="error" class="alert alert-danger" > 
+            {{ error }} </div> 
+            <!-- EXISTING RESUME -->
+              <div *ngIf="resume" class="card mb-3" > 
+                <div class="card-body"> 
+                  <h5>Current Resume</h5>
+                   <p>{{ resume.fileName }}</p>
+                    <button class="btn btn-outline-primary btn-sm me-2" (click)="viewResume()" > View Resume 
+
+                    </button>
+                     <button class="btn btn-outline-success btn-sm" (click)="downloadResume()" > Download Resume
+                       </button>
+                       </div> 
+                      </div>
+                       <!-- NO RESUME --> 
+                        <div *ngIf="!resume" class="alert alert-warning" > No resume uploaded.
+                           </div> 
+                           <!-- UPLOAD NEW RESUME -->
+<div class="mb-3">
+
+  <label class="form-label">
+    Upload New Resume (PDF only)
+  </label>
+
+  <input
+    type="file"
+    class="form-control"
+    accept=".pdf"
+    (change)="onFileSelected($event)"
+  >
+
+  <small class="text-muted">
+    PDF only • Maximum size 5 MB
+  </small>
+
+  <div *ngIf="selectedFile" class="text-success mt-2">
+    Selected File: {{ selectedFile.name }}
+  </div>
+
+</div>
+
+<!-- APPLY BUTTON -->
+<button
+  class="btn btn-primary"
+  (click)="applyJob()"
+  [disabled]="
+    applying ||
+    !job ||
+    !job.active ||
+    job.applied ||
+    (!resume && !selectedFile)
+  "
+>
+  <span *ngIf="applying">
+    Applying...
+  </span>
+
+  <span *ngIf="!applying">
+    Submit Application
+  </span>
+</button>
+
+
+  </div>
+
+</div>

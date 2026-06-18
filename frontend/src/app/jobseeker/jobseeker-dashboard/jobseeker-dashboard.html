@@ -1,0 +1,84 @@
+<div class="js-layout">
+
+  <!-- SIDEBAR -->
+  <div class="js-sidebar">
+
+    <div class="js-logo">Jobseeker</div>
+
+    <nav class="js-nav">
+      <a routerLink="/jobseeker-dashboard" class="active">
+        Dashboard
+      </a>
+
+      <a routerLink="/job-search">
+        Search Jobs
+      </a>
+
+      <a routerLink="/jobseeker-applied-jobs">
+        My Applications
+      </a>
+
+      <a routerLink="/saved-jobs">
+        Saved Jobs
+      </a>
+
+      <a routerLink="/manage-resume">
+        Resume
+      </a>
+    </nav>
+
+    <button class="js-logout" (click)="logout()">
+      Logout
+    </button>
+
+  </div>
+
+  <!-- CONTENT -->
+  <div class="js-content">
+
+    <!-- HEADER -->
+    <div class="js-header">
+      <h1>Jobseeker Dashboard</h1>
+      <p>Manage applications, saved jobs and resume</p>
+    </div>
+
+    <!-- DASHBOARD CARDS -->
+    <div class="js-grid">
+
+      <div
+        class="js-card"
+        (click)="goToSearchJobs()"
+      >
+        <h2>🔍</h2>
+        <p>Search Jobs</p>
+      </div>
+
+      <div
+        class="js-card"
+        (click)="goToAppliedJobs()"
+      >
+        <h2>📄</h2>
+        <p>My Applications</p>
+      </div>
+
+      <div
+        class="js-card"
+        (click)="goToSavedJobs()"
+      >
+        <h2>⭐</h2>
+        <p>Saved Jobs</p>
+      </div>
+
+      <div
+        class="js-card"
+        (click)="goToResume()"
+      >
+        <h2>📁</h2>
+        <p>Manage Resume</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

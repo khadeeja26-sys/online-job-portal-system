@@ -1,0 +1,188 @@
+/* PAGE */
+.mr-layout {
+  display: flex;
+  min-height: 100vh;
+  background: #eef4fb;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* SIDEBAR */
+.mr-sidebar {
+  width: 280px;
+  background: linear-gradient(180deg, #1565c0, #42a5f5);
+  color: white;
+  padding: 30px 25px;
+  display: flex;
+  flex-direction: column;
+}
+
+.mr-logo {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 50px;
+}
+
+.mr-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.mr-nav a {
+  color: white;
+  text-decoration: none;
+  padding: 14px 18px;
+  border-radius: 10px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.mr-nav a:hover,
+.mr-nav a.active {
+  background: rgba(255,255,255,0.18);
+}
+
+.mr-logout {
+  margin-top: auto;
+  border: none;
+  background: white;
+  color: #1565c0;
+  font-weight: 700;
+  padding: 14px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.mr-logout:hover {
+  background: #f4f8ff;
+}
+
+/* CONTENT */
+.mr-content {
+  flex: 1;
+  padding: 40px;
+}
+
+/* HEADER */
+.mr-header {
+  background: white;
+  padding: 35px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+  margin-bottom: 30px;
+}
+
+.mr-header h1 {
+  color: #1565c0;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.mr-header p {
+  color: #5c6f8d;
+  margin: 0;
+}
+
+/* CARD */
+.mr-card {
+  background: white;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+  margin-bottom: 25px;
+}
+
+.mr-card h3 {
+  color: #1565c0;
+  margin-bottom: 20px;
+}
+
+/* FORM */
+.mr-form-group {
+  margin-bottom: 20px;
+}
+
+.mr-form-group label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: #1565c0;
+}
+
+.mr-input {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #d7dee8;
+  border-radius: 10px;
+  background: white;
+}
+
+.mr-input:focus {
+  outline: none;
+  border-color: #1565c0;
+}
+
+/* BUTTONS */
+.mr-btn-group {
+  margin-top: 20px;
+}
+
+.mr-btn {
+  border: none;
+  border-radius: 10px;
+  padding: 12px 20px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: 0.3s;
+}
+
+.mr-primary {
+  background: #1565c0;
+  color: white;
+}
+
+.mr-primary:hover {
+  background: #0d47a1;
+}
+
+.mr-success-btn {
+  background: #2e7d32;
+  color: white;
+}
+
+.mr-success-btn:hover {
+  background: #1b5e20;
+}
+
+.mr-danger {
+  background: #d32f2f;
+  color: white;
+}
+
+.mr-danger:hover {
+  background: #b71c1c;
+}
+
+.mr-btn:disabled {
+  background: #a0aec0;
+  cursor: not-allowed;
+}
+
+/* ALERTS */
+.mr-alert {
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.mr-success {
+  background: #d4edda;
+  color: #155724;
+}
+
+.mr-error {
+  background: #f8d7da;
+  color: #721c24;
+}

@@ -1,0 +1,140 @@
+<div class="admin-layout">
+
+ 
+  <aside class="sidebar">
+
+    <h2 class="logo">
+      Job Portal Admin
+    </h2>
+
+    <nav>
+<a routerLink="/admin-dashboard">
+        Dashboard
+      </a>
+      <a
+        routerLink="/admin-approve-recruiters"
+        class="active"
+      >
+        Approve Recruiters
+      </a>
+
+      <a routerLink="/admin-manage-jobs">
+        Manage Jobs
+      </a>
+
+      <a routerLink="/admin-manage-users">
+        Manage Users
+      </a>
+
+    </nav>
+
+    <button
+      class="logout-btn"
+      (click)="logout()"
+    >
+      Logout
+    </button>
+
+  </aside>
+
+  <main class="content">
+
+    <div class="page-header">
+      <h1>Approve Recruiters</h1>
+      <p>
+        Review and approve recruiter registrations.
+      </p>
+    </div>
+
+    <div
+      *ngIf="message"
+      class="alert success"
+    >
+      {{ message }}
+    </div>
+
+   
+    <div
+      *ngIf="error"
+      class="alert error"
+    >
+      {{ error }}
+    </div>
+
+    
+    <div
+      *ngIf="loading"
+      class="loading-box"
+    >
+      Loading recruiters...
+    </div>
+
+    <!-- TABLE CARD -->
+    <div
+      *ngIf="recruiters.length > 0"
+      class="table-card"
+    >
+
+      <table>
+
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr *ngFor="let recruiter of recruiters">
+
+            <td>#{{ recruiter.id }}</td>
+
+            <td>{{ recruiter.name }}</td>
+
+            <td>{{ recruiter.email }}</td>
+
+            <td>
+
+              <span
+                class="status approved"
+                *ngIf="recruiter.approved"
+              >
+                Approved
+              </span>
+
+              <span
+                class="status pending"
+                *ngIf="!recruiter.approved"
+              >
+                Pending
+              </span>
+
+            </td>
+
+            <td>
+
+              <button
+                class="approve-btn"
+                [disabled]="recruiter.approved"
+                (click)="approveRecruiter(recruiter.id)"
+              >
+                {{ recruiter.approved ? 'Approved' : 'Approve' }}
+              </button>
+
+            </td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </main>
+
+</div>

@@ -1,0 +1,115 @@
+<div class="mj-layout">
+
+  <!-- SIDEBAR -->
+  <div class="mj-sidebar">
+
+    <div class="mj-logo">Recruiter</div>
+
+    <nav class="mj-nav">
+      <a routerLink="/recruiter-dashboard">Dashboard</a>
+      <a routerLink="/post-job">Post Job</a>
+      <a routerLink="/recruiter-jobs" class="active">Manage Jobs</a>
+    </nav>
+
+    <button class="mj-logout" (click)="logout()">
+      Logout
+    </button>
+
+  </div>
+
+  <!-- CONTENT -->
+  <div class="mj-content">
+
+    <!-- HEADER -->
+    <div class="mj-header">
+      <h1>Manage Jobs</h1>
+      <p>View, update and manage your job postings</p>
+    </div>
+
+    <!-- ALERTS -->
+    <div *ngIf="message" class="mj-alert success">
+      {{ message }}
+    </div>
+
+    <div *ngIf="error" class="mj-alert error">
+      {{ error }}
+    </div>
+
+    <div *ngIf="loading" class="mj-alert">
+      Loading jobs...
+    </div>
+
+    <div *ngIf="!loading && jobs.length === 0" class="mj-alert">
+      No jobs found
+    </div>
+
+    <!-- JOB CARDS -->
+    <div class="mj-grid">
+
+      <div class="mj-card" *ngFor="let job of jobs">
+
+        <!-- TITLE -->
+        <h2 class="mj-title">{{ job.title }}</h2>
+
+        <p class="mj-text">
+          <b>Company:</b> {{ job.company }}
+        </p>
+
+        <p class="mj-text">
+          <b>Location:</b> {{ job.location }}
+        </p>
+
+        <p class="mj-text">
+          <b>Salary:</b> ₹ {{ job.salary }}
+        </p>
+
+        <!-- DESCRIPTION -->
+        <div class="mj-desc">
+          <b>Description:</b>
+          <div class="mj-desc-box">
+            {{ job.description }}
+          </div>
+        </div>
+
+        <!-- ACTIONS -->
+        <div class="mj-actions">
+
+          <button
+            class="mj-btn primary"
+            [routerLink]="['/edit-job', job.id]"
+          >
+            Update
+          </button>
+
+          <button
+            *ngIf="job.active"
+            class="mj-btn warning"
+            (click)="closeJob(job.id)"
+          >
+            Close Job
+          </button>
+
+          <button
+            *ngIf="!job.active"
+            class="mj-btn disabled"
+            disabled
+          >
+            Closed
+          </button>
+
+          <button
+            class="mj-btn info"
+            (click)="viewApplicants(job.id)"
+          >
+            Applicants
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

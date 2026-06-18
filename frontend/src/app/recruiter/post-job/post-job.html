@@ -1,0 +1,77 @@
+<div class="postjob-admin-layout">
+
+  <!-- SIDEBAR -->
+  <div class="postjob-sidebar">
+
+    <div class="postjob-logo">Recruiter</div>
+
+    <nav class="postjob-nav">
+      <a routerLink="/recruiter-dashboard">Dashboard</a>
+      <a routerLink="/post-job" class="active">Post Job</a>
+      <a routerLink="/recruiter-jobs">Manage Jobs</a>
+    </nav>
+
+    <button class="postjob-logout" (click)="logout()">
+      Logout
+    </button>
+
+  </div>
+
+  <!-- CONTENT -->
+  <div class="postjob-content">
+
+    <!-- HEADER -->
+    <div class="postjob-header">
+      <h1>Post New Job</h1>
+      <p>Create and publish a new job opening</p>
+    </div>
+
+    <!-- SUCCESS -->
+    <div *ngIf="message" class="postjob-alert success">
+      {{ message }}
+    </div>
+
+    <!-- ERROR -->
+    <div *ngIf="error" class="postjob-alert error">
+      {{ error }}
+    </div>
+
+    <!-- FORM CARD -->
+    <div class="postjob-card">
+
+      <!-- TITLE -->
+      <label>Job Title</label>
+      <input type="text" [(ngModel)]="jobRequest.title" />
+
+      <!-- DESCRIPTION -->
+      <label>Description</label>
+      <textarea rows="10"
+        [(ngModel)]="jobRequest.description">
+      </textarea>
+
+      <!-- COMPANY -->
+      <label>Company</label>
+      <input type="text" [(ngModel)]="jobRequest.company" />
+
+      <!-- LOCATION -->
+      <label>Location</label>
+      <input type="text" [(ngModel)]="jobRequest.location" />
+
+      <!-- SALARY -->
+      <label>Salary</label>
+      <input type="number" [(ngModel)]="jobRequest.salary" />
+
+      <!-- BUTTON -->
+      <button
+        class="postjob-btn"
+        (click)="postJob()"
+        [disabled]="loading"
+      >
+        Post Job
+      </button>
+
+    </div>
+
+  </div>
+
+</div>

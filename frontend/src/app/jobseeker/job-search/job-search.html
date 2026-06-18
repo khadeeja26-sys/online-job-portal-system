@@ -1,0 +1,122 @@
+<div class="js-search-layout">
+
+  <!-- SIDEBAR -->
+  <div class="js-search-sidebar">
+
+    <div class="js-search-logo">
+      Jobseeker
+    </div>
+
+    <nav class="js-search-nav">
+      <a routerLink="/jobseeker-dashboard">
+        Dashboard
+      </a>
+
+      <a routerLink="/job-search" class="active">
+        Search Jobs
+      </a>
+
+      <a routerLink="/jobseeker-applied-jobs">
+        My Applications
+      </a>
+
+      <a routerLink="/saved-jobs">
+        Saved Jobs
+      </a>
+
+      <a routerLink="/manage-resume">
+        Resume
+      </a>
+    </nav>
+
+    <button
+      class="js-search-logout"
+      (click)="logout()"
+    >
+      Logout
+    </button>
+
+  </div>
+
+  <!-- CONTENT -->
+  <div class="js-search-content">
+
+    <!-- HEADER -->
+    <div class="js-search-header">
+      <h1>Search Jobs</h1>
+      <p>Find opportunities that match your skills and interests</p>
+    </div>
+
+    <!-- SEARCH BOX -->
+    <div class="js-search-card">
+
+      <div class="js-search-row">
+
+        <input
+          type="text"
+          class="js-search-input"
+          placeholder="Search by job title"
+          [(ngModel)]="keyword"
+        >
+
+        <button
+          class="js-search-btn"
+          (click)="searchJobs()"
+          [disabled]="loading"
+        >
+          Search
+        </button>
+
+      </div>
+
+    </div>
+
+    <!-- ERROR -->
+    <div
+      *ngIf="error"
+      class="js-search-alert js-search-error"
+    >
+      {{ error }}
+    </div>
+
+    <!-- LOADING -->
+    <div
+      *ngIf="loading"
+      class="js-search-card"
+    >
+      Loading jobs...
+    </div>
+
+    <!-- EMPTY -->
+    <div
+      *ngIf="!loading && jobs.length === 0"
+      class="js-search-alert js-search-info"
+    >
+      No jobs found
+    </div>
+
+    <!-- JOB LIST -->
+    <div
+      *ngFor="let job of jobs"
+      class="js-search-job-card"
+    >
+
+      <h3>{{ job.title }}</h3>
+
+      <p>
+        <strong>Company:</strong>
+        {{ job.company }}
+      </p>
+
+      <button
+        class="js-search-view-btn"
+        (click)="viewDetails(job.id)"
+      >
+        View Details
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
