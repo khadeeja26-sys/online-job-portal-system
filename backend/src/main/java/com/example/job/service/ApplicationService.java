@@ -44,9 +44,6 @@ public class ApplicationService {
     @Autowired
     private ResumeRepository resumeRepo;
 
-    // =========================
-    // ✅ APPLY JOB (SECURE)
-    // =========================
     public ApplicationResponse apply(ApplyRequest req, Authentication auth) {
 
         User user = getLoggedInUser(auth);
@@ -54,7 +51,7 @@ public class ApplicationService {
         Job job = jobRepo.findById(req.getJobId())
                 .orElseThrow(() -> new RuntimeException("Job not found"));
 
-        // 🔥 Prevent duplicate applications
+       
         if (appRepo.existsByUserIdAndJobId(user.getId(), req.getJobId())) {
             throw new ResponseStatusException(
                     HttpStatus.BAD_REQUEST,
@@ -71,9 +68,6 @@ public class ApplicationService {
         return toDTO(appRepo.save(app));
     }
 
-    // =========================
-    // ✅ RECRUITER VIEW (SECURE)
-    // =========================
     public List<ApplicationResponse> getByJob(Long jobId, Authentication auth) {
 
         User recruiter = getLoggedInUser(auth);
@@ -84,7 +78,6 @@ public class ApplicationService {
         			    "Job not found"
         			));
 
-        // 🔥 Ownership check
         if (!job.getRecruiter().getId().equals(recruiter.getId())) {
         	throw new ResponseStatusException(
         		    HttpStatus.FORBIDDEN,
@@ -98,9 +91,7 @@ public class ApplicationService {
                 .toList();
     }
 
-    // =========================
-    // ✅ JOBSEEKER VIEW (SECURE)
-    // =========================
+    
     public List<ApplicationResponse> getMyApplications(Authentication auth) {
 
         User user = getLoggedInUser(auth);
@@ -111,10 +102,7 @@ public class ApplicationService {
                 .toList();
     }
 
-    
-    // =========================
-    // 🔧 HELPER METHODS
-    // =========================
+   
 
     private User getLoggedInUser(Authentication auth) {
         return userRepo.findByEmail(auth.getName())
