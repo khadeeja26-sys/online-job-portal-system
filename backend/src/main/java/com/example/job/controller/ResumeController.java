@@ -21,37 +21,35 @@ public class ResumeController {
     @Autowired
     private ResumeService service;
 
-    // ✅ Upload (JOBSEEKER)
+   
     @PostMapping("/upload")
     @PreAuthorize("hasRole('JOBSEEKER')")
     public ResumeResponse upload(@RequestParam("file") MultipartFile file,
                                  Authentication auth) throws IOException {
         return service.upload(file, auth);
     }
-//
-//     ✅ Get my resume
+
     @GetMapping("/my")
     @PreAuthorize("hasRole('JOBSEEKER')")
     public ResumeResponse getMy(Authentication auth) {
         return service.getMyResume(auth);
     }
 
-    // ✅ Delete
+    
     @DeleteMapping("/delete")
     @PreAuthorize("hasRole('JOBSEEKER')")
     public void delete(Authentication auth) {
         service.delete(auth);
     }
 
-    // ✅ Preview / Download
+   
     @GetMapping("/download/{id}")
     @PreAuthorize("hasRole('JOBSEEKER')")
     public ResponseEntity<Resource> download(@PathVariable Long id,
                                              Authentication auth) throws IOException {
         return service.download(id, auth);
     }
-    
-//    Recruiter Dowload Applicants Resume
+
     @GetMapping("/recruiter/download/{applicationId}")
     @PreAuthorize("hasRole('RECRUITER')")
     public ResponseEntity<Resource> downloadForRecruiter(
