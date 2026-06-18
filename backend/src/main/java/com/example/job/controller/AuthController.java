@@ -16,17 +16,12 @@ public class AuthController {
     @Autowired
     private AuthService service;
 
-    // =========================
-    // 🔐 LOGIN
-    // =========================
     @PostMapping("/login")
     public AuthResponse login(@RequestBody LoginRequest req) {
         return service.login(req);
     }
 
-    // =========================
-    // 🆕 REGISTER
-    // =========================
+   
     @PostMapping("/register")
     public String register(@RequestBody RegisterRequest req) {
         service.register(req);
