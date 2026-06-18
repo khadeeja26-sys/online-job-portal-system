@@ -19,23 +19,21 @@ public class JobController {
     @Autowired
     private JobService service;
 
-    // ✅ GET all jobs + search
+   
     @GetMapping("/search")
     public List<JobResponse> getJobs(@RequestParam(required = false ,  defaultValue = "") String keyword, Authentication auth) {
         return service.getJobs(keyword,auth);
     }
 
-    // ✅ GET single job
     @GetMapping("/{id}")
     public JobResponse getById(@PathVariable Long id, Authentication auth) {
         return service.getById(id,auth);
     }
 
-    // ✅ POST job (Recruiter only)
     @PostMapping
     @PreAuthorize("hasRole('RECRUITER')")
     public JobResponse post(@RequestBody JobRequest dto, Authentication auth) {
-        return service.save(dto, auth); // ✅ FIXED
+        return service.save(dto, auth); 
     }
     
     @GetMapping("/my-jobs")
@@ -44,7 +42,7 @@ public class JobController {
         return service.getMyJobs(auth);
     }
 
-    // ✅ UPDATE job
+   
     @PutMapping("/{id}")
     @PreAuthorize("hasRole('RECRUITER')")
     public JobResponse update(@PathVariable Long id,
@@ -53,10 +51,10 @@ public class JobController {
         return service.update(id, dto, auth);
     }
 
-    // ✅  close job
+    
     @PutMapping("/close/{id}")
     @PreAuthorize("hasRole('RECRUITER')")
     public void closeJob(@PathVariable Long id, Authentication auth) {
-        service.closeJob(id, auth); // ✅ FIXED
+        service.closeJob(id, auth); 
     }
 }
