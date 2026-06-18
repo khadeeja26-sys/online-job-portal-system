@@ -23,16 +23,13 @@ public class AdminService {
     @Autowired
     private JobRepository jobRepo;
 
-    // ================= USERS =================
-
+    
     public List<UserResponse> getUsers() {
         return userRepo.findAll()
                 .stream()
                 .map(this::toUserResponseDTO)
                 .toList();
     }
-
- // ================= SUSPEND USER =================
 
     public void suspendUser(Long id) {
 
@@ -48,7 +45,6 @@ public class AdminService {
         userRepo.save(user);
     }
 
-    // ================= JOBS =================
 
     public List<JobResponse> getJobs() {
         return jobRepo.findAll()
@@ -67,20 +63,16 @@ public class AdminService {
 
         jobRepo.save(job);
     }
-
-    // ================= APPROVE RECRUITER =================
-
     public void approveRecruiter(Long id) {
 
         User user = userRepo.findById(id)
                 .orElseThrow(() -> new RuntimeException("User not found"));
 
-        // 🔥 Must be recruiter
         if (user.getRole() != Role.RECRUITER) {
             throw new RuntimeException("User is not a recruiter");
         }
 
-        // 🔥 Prevent re-approval
+    
         if (user.isApproved()) {
             throw new RuntimeException("Recruiter already approved");
         }
@@ -89,7 +81,7 @@ public class AdminService {
         userRepo.save(user);
     }
 
-    // ================= DASHBOARD =================
+   
 
     public Map<String, Long> getDashboard() {
 
@@ -104,9 +96,7 @@ public class AdminService {
         );
     }
 
-    // ================= DTO MAPPING =================
-
-    private UserResponse toUserResponseDTO(User u) {
+   private UserResponse toUserResponseDTO(User u) {
         UserResponse dto = new UserResponse();
         dto.setId(u.getId());
         dto.setName(u.getName());
