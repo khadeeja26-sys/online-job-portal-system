@@ -78,8 +78,7 @@ public class ApplicationResponse {
 	
 	public ApplicationResponse() {
 		
-		// TODO Auto-generated constructor stub
-	}
+		}
 	public ApplicationResponse(Long id, Long jobId, Long userId, String status, LocalDate appliedDate, String jobTitle,
 			String company, String applicantName, String email, boolean active) {
 		super();
@@ -95,7 +94,4 @@ public class ApplicationResponse {
 		this.active = active;
 	}
 	
-	
-	
-    // getters & setters
-}
+	}
