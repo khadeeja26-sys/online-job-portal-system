@@ -24,7 +24,7 @@ public class Job {
 
     private Double salary;
 
-    // 🔥 recruiter who posted the job
+    //  recruiter who posted the job
     @ManyToOne
     @JoinColumn(name = "recruiter_id")
     private User recruiter;
