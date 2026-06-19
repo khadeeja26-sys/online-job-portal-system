@@ -15,12 +15,12 @@ public class Application {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // 🔥 applicant
+    //  applicant
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
 
-    // 🔥 applied job
+    //  applied job
     @ManyToOne
     @JoinColumn(name = "job_id")
     private Job job;
