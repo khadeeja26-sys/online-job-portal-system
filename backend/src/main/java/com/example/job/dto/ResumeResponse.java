@@ -36,5 +36,4 @@ public class ResumeResponse {
     
 
 
-    // getters & setters
 }
