@@ -18,12 +18,12 @@ public class SavedJob {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // 🔥 jobseeker
+    //  jobseeker
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
 
-    // 🔥 saved job
+    //  saved job
     @ManyToOne
     @JoinColumn(name = "job_id")
     private Job job;
