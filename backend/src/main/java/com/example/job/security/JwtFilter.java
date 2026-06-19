@@ -38,7 +38,7 @@ public class JwtFilter extends OncePerRequestFilter {
         String token = null;
         String email = null;
 
-        // 🔹 Extract token
+        //  Extract token
         if (header != null && header.startsWith("Bearer ")) {
             token = header.substring(7);
             try {
@@ -49,7 +49,7 @@ public class JwtFilter extends OncePerRequestFilter {
         
         }
 
-        // 🔹 Validate and set authentication
+        //  Validate and set authentication
         if (email != null && SecurityContextHolder.getContext().getAuthentication() == null) {
 
             UserDetails userDetails = userDetailsService.loadUserByUsername(email);
