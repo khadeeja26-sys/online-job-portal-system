@@ -15,10 +15,10 @@ public class Resume {
 
     private String fileName;
 
-    // 🔥 internal backend use only
+    //  internal backend use onl
     private String filePath;
 
-    // 🔥 one resume belongs to one user
+    //  one resume belongs to one user
     @OneToOne
     @JoinColumn(name = "user_id")
     private User user;
