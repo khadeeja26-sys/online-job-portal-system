@@ -17,7 +17,7 @@ public class JwtUtil {
 
     private final Key key = Keys.hmacShaKeyFor(SECRET.getBytes());
 
-    // ✅ Generate Token
+    //  Generate Token
     public String generateToken(String email, String role) {
         return Jwts.builder()
                 .setSubject(email)
@@ -28,17 +28,17 @@ public class JwtUtil {
                 .compact();
     }
 
-    // ✅ Extract Email
+    //  Extract Email
     public String extractUsername(String token) {
         return extractClaims(token).getSubject();
     }
 
-    // ✅ Extract Role
+    //  Extract Role
     public String extractRole(String token) {
         return extractClaims(token).get("role", String.class);
     }
 
-    // ✅ Validate Token (with user)
+    //  Validate Token (with user)
     public boolean validateToken(String token,
                                  org.springframework.security.core.userdetails.UserDetails userDetails) {
 
@@ -46,12 +46,12 @@ public class JwtUtil {
         return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
     }
 
-    // ✅ Check Expiry
+    //  Check Expiry
     private boolean isTokenExpired(String token) {
         return extractClaims(token).getExpiration().before(new Date());
     }
 
-    // ✅ Extract Claims
+    //  Extract Claims
     private Claims extractClaims(String token) {
         return Jwts.parserBuilder()
                 .setSigningKey(key)
