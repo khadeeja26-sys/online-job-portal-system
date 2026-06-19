@@ -77,6 +77,4 @@ public class JobResponse {
 	}
 	
 	
-
-    // getters & setters
 }
